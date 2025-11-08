@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  {% block head %}
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>{%block title%}I-Tech {%endblock%}</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/flash.css') }}">
+
+  {% endblock %}
+
+</head>
+<body>
+
+  <!-- Flash messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div id="flash-messages">
+        {% for category, message in messages %}
+          <div class="alert {{ category }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+
+
+  {% block content %}
+  <div class="container_1"></div>
+
+  <main class="login-app" aria-labelledby="login-title">
+
+    <header class="login-header">
+      <div class="logo-spot">
+        <img src="../static/image/I-tech-logo.png" alt="Company logo" class="header-logo" />
+      </div>
+    </header>
+
+    <section class="login-panel" aria-describedby="login-desc">
+      <h1 id="login-title" class="panel-title">Sign in to Your Account</h1>
+      <p id="login-desc" class="panel-sub">I-Tech&lt;/&gt;</p>
+
+      <form action="/" id="loginForm" class="form" autocomplete="off" novalidate method="POST">
+        {{ form.hidden_tag() }}
+
+        <label class="field">
+          <span class="label">Email</span>
+          {{ form.email(id="email", placeholder="Enter your email" ,autocomplete = "on") }}
+          <span class="field-note" id="emailNote"></span>
+        </label>
+
+        <label class="field">
+          <span class="label">Password</span>
+          <div class="password-row">
+            {{ form.password(id="password", placeholder="Enter your password" ,autocomplete = "on" ) }}
+          </div>
+          <span class="field-note" id="pwNote"></span>
+        </label>
+
+        <div class="form-actions"><div></div></div>
+
+        <div class="submit-row">
+          {{ form.submit(id="signinBtn", class="btn primary") }}
+        </div>
+
+        <div id="formMsg" class="form-msg" role="status" aria-live="polite"></div>
+      </form>
+
+      <div class="alt"></div>
+    </section>
+
+    <footer class="login-footer small muted">
+      &copy; I-Tech, by Ishmael Sannoh &lt;/&gt;
+    </footer>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/home_bubbles.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/flash.js') }}"></script>
+{% endblock %}
+
+
+</body>
+</html>

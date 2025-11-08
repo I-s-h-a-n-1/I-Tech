@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="fn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="stylesheet" href="static/css/home.css">
+
+        <link rel="stylesheet" href="static/css/styles.css">
+    <title>Student Dashboard</title>
+   
+   
+</head>
+<p>Regular text. <kbd>This is inside kbd element</kbd> Regular text.</p>
+<div class="whole-content" >
+<body class="light-mode" bgcolor="#ff0000" >
+  
+
+    <!-- Main Content -->
+    <main class="compact-content-wrapper">
+        <!-- Dashboard Grid Layout -->
+        <div class="dashboard-grid">
+            <!-- Balance Card -->
+            <div class="dashboard-card glass-effect">
+                <div class="card-header">
+                    <h3><i class="fas fa-wallet"></i> Outstanding Balance</h3>
+                </div>
+                <div class="balance-display">
+                    <h2 class="balance-amount">Le 350</h2>
+                    <p class="balance-due">Due: Friday, Dec 15</p>
+                </div>
+                
+            </div>
+
+            <!-- Announcements Section -->
+            <div class="dashboard-card glass-effect">
+                <div class="card-header">
+                    <h3><i class="fas fa-bullhorn"></i> Announcements</h3>
+                    <button class="add-assignment-btn" id="addAnnouncementBtn">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+                <div class="announcement-list" id="announcementsList">
+                    <div class="announcement-item">
+                        <h4>Timetable Update Available</h4>
+                        <p>New schedule changes for December semester are now live.</p>
+                        <span class="announcement-date">Today, 10:30 AM</span>
+                    </div>
+                    <div class="announcement-item">
+                        <h4>Payment Due This Friday</h4>
+                        <p>Please ensure your outstanding balance is settled by Friday.</p>
+                        <span class="announcement-date">Yesterday, 3:45 PM</span>
+                    </div>
+                    <div class="announcement-item">
+                        <h4>Holiday Schedule Changes</h4>
+                        <p>Classes will resume on January 8th after the holiday break.</p>
+                        <span class="announcement-date">Dec 12, 9:15 AM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next Class Section -->
+            <div class="dashboard-card glass-effect">
+                <div class="card-header">
+                    <h3><i class="fas fa-calendar-check"></i> Next Class</h3>
+                </div>
+                <div class="next-class-info">
+                    <div class="class-highlight">
+                        <h4>Mathematics</h4>
+                        <p class="instructor">Prof. Johnson</p>
+                        <div class="class-time-info">
+                            <span class="time-badge">Tomorrow</span>
+                            <span class="time-details">08:00 - 09:30</span>
+                        </div>
+                        <p class="location">Room 301</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- General Classes Timetable -->
+            <div class="dashboard-card glass-effect">
+                <div class="card-header">
+                    <h3><i class="fas fa-users"></i> General Classes</h3>
+                    <button class="add-assignment-btn" id="addGeneralClassBtn">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+                <div class="simple-timetable" id="generalClassesList">
+                    <div class="timetable-row">
+                        <span class="course-name">Mathematics</span>
+                        <span class="course-day">Mon, Wed</span>
+                        <span class="course-time">08:00 - 09:30</span>
+                    </div>
+                    <div class="timetable-row">
+                        <span class="course-name">Physics</span>
+                        <span class="course-day">Tue, Thu</span>
+                        <span class="course-time">10:00 - 11:30</span>
+                    </div>
+                    <div class="timetable-row">
+                        <span class="course-name">English</span>
+                        <span class="course-day">Mon, Fri</span>
+                        <span class="course-time">13:00 - 14:30</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Private Classes Timetable -->
+            <div class="dashboard-card glass-effect">
+                <div class="card-header">
+                    <h3><i class="fas fa-user-graduate"></i> Private Classes</h3>
+                    <button class="add-assignment-btn" id="addPrivateClassBtn">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+                <div class="simple-timetable" id="privateClassesList">
+                    <div class="timetable-row">
+                        <span class="course-name">Music Theory</span>
+                        <span class="course-day">Tuesday</span>
+                        <span class="course-time">15:00 - 16:30</span>
+                    </div>
+                    <div class="timetable-row">
+                        <span class="course-name">French</span>
+                        <span class="course-day">Wednesday</span>
+                        <span class="course-time">17:00 - 18:30</span>
+                    </div>
+                    <div class="timetable-row">
+                        <span class="course-name">Tutoring</span>
+                        <span class="course-day">Thursday</span>
+                        <span class="course-time">15:00 - 16:30</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Study Materials Section -->
+            <div class="dashboard-card glass-effect">
+                <div class="card-header">
+                    <h3><i class="fas fa-book"></i> Study Materials</h3>
+                    <button class="add-assignment-btn" id="addMaterialBtn">
+                        <i class="fas fa-plus"></i> Add File
+                    </button>
+                </div>
+                <div class="materials-grid" id="materialsList">
+                    <div class="material-card">
+                        <div class="material-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="material-info">
+                            <h4>Calculus Notes.pdf</h4>
+                            <p>Chapter 3 - Derivatives</p>
+                            <span class="material-date">Updated: Dec 10</span>
+                            <span class="file-size">2.4 MB</span>
+                        </div>
+                        <div class="material-actions">
+                            <button class="material-btn read">Read</button>
+                            <button class="material-btn download">Download</button>
+                        </div>
+                    </div>
+                    <div class="material-card">
+                        <div class="material-icon">
+                            <i class="fas fa-file-word"></i>
+                        </div>
+                        <div class="material-info">
+                            <h4>Physics Lab Manual.docx</h4>
+                            <p>Experiment 5 - Optics</p>
+                            <span class="material-date">Updated: Dec 8</span>
+                            <span class="file-size">1.8 MB</span>
+                        </div>
+                        <div class="material-actions">
+                            <button class="material-btn read">Read</button>
+                            <button class="material-btn download">Download</button>
+                        </div>
+                    </div>
+                    <div class="material-card">
+                        <div class="material-icon">
+                            <i class="fas fa-file-powerpoint"></i>
+                        </div>
+                        <div class="material-info">
+                            <h4>English Literature.pptx</h4>
+                            <p>Shakespeare Analysis</p>
+                            <span class="material-date">Updated: Dec 5</span>
+                            <span class="file-size">5.2 MB</span>
+                        </div>
+                        <div class="material-actions">
+                            <button class="material-btn read">Read</button>
+                            <button class="material-btn download">Download</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assignments Section -->
+            <div class="dashboard-card glass-effect">
+                <div class="card-header">
+                    <h3><i class="fas fa-tasks"></i> Assignments</h3>
+                    <button class="add-assignment-btn" id="addAssignmentBtn">
+                        <i class="fas fa-plus"></i> Add Assignment
+                    </button>
+                </div>
+                <div class="assignments-list" id="assignmentsList">
+                    <div class="assignment-item">
+                        <div class="assignment-info">
+                            <h4>Calculus Problem Set</h4>
+                            <p>Chapter 4 - Integrals</p>
+                            <span class="assignment-due">Due: Dec 18</span>
+                            <span class="assignment-status pending">Pending</span>
+                        </div>
+                        <div class="assignment-submission">
+                            <input type="file" class="file-input" placeholder="Upload your file">
+                            <button class="submit-btn">Submit</button>
+                        </div>
+                    </div>
+                    <div class="assignment-item">
+                        <div class="assignment-info">
+                            <h4>Physics Lab Report</h4>
+                            <p>Optics Experiment Analysis</p>
+                            <span class="assignment-due">Due: Dec 20</span>
+                            <span class="assignment-status submitted">Submitted</span>
+                        </div>
+                        <div class="assignment-submission">
+                            <input type="file" class="file-input" placeholder="Upload your file">
+                            <button class="submit-btn">Submit</button>
+                        </div>
+                    </div>
+                    <div class="assignment-item">
+                        <div class="assignment-info">
+                            <h4>English Essay</h4>
+                            <p>Shakespeare Character Analysis</p>
+                            <span class="assignment-due">Due: Dec 22</span>
+                            <span class="assignment-status pending">Pending</span>
+                        </div>
+                        <div class="assignment-submission">
+                            <input type="file" class="file-input" placeholder="Upload your file">
+                            <button class="submit-btn">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Assignment Modal -->
+            <div class="modal fade" id="addAssignmentModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content glass-effect">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add New Assignment</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="assignmentForm">
+                                <div class="mb-3">
+                                    <label for="assignmentTitle" class="form-label">Assignment Title</label>
+                                    <input type="text" class="form-control" id="assignmentTitle" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="assignmentDescription" class="form-label">Description</label>
+                                    <textarea class="form-control" id="assignmentDescription" rows="3" required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="assignmentDueDate" class="form-label">Due Date</label>
+                                    <input type="date" class="form-control" id="assignmentDueDate" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="payment-btn secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="payment-btn primary" id="saveAssignmentBtn">Create Assignment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Announcement Modal -->
+            <div class="modal fade" id="addAnnouncementModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content glass-effect">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add New Announcement</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="announcementForm">
+                                <div class="mb-3">
+                                    <label for="announcementTitle" class="form-label">Announcement Title</label>
+                                    <input type="text" class="form-control" id="announcementTitle" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="announcementDescription" class="form-label">Description</label>
+                                    <textarea class="form-control" id="announcementDescription" rows="3" required></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="payment-btn secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="payment-btn primary" id="saveAnnouncementBtn">Create Announcement</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Class Modal -->
+            <div class="modal fade" id="addClassModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content glass-effect">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add New Class</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="classForm">
+                                <div class="mb-3">
+                                    <label for="className" class="form-label">Class Name</label>
+                                    <input type="text" class="form-control" id="className" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="classDays" class="form-label">Days</label>
+                                    <input type="text" class="form-control" id="classDays" placeholder="e.g., Mon, Wed" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="classTime" class="form-label">Time</label>
+                                    <input type="text" class="form-control" id="classTime" placeholder="e.g., 08:00 - 09:30" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="payment-btn secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="payment-btn primary" id="saveClassBtn">Add Class</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Material Modal -->
+            <div class="modal fade" id="addMaterialModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content glass-effect">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add Study Material</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="materialForm" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label for="materialFile" class="form-label">Upload File</label>
+                                    <input type="file" class="form-control" id="materialFile" required accept=".pdf,.doc,.docx,.ppt,.pptx,.txt">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="materialTitle" class="form-label">File Title</label>
+                                    <input type="text" class="form-control" id="materialTitle" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="materialDescription" class="form-label">Description</label>
+                                    <textarea class="form-control" id="materialDescription" rows="2" required></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="payment-btn secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="payment-btn primary" id="saveMaterialBtn">Upload File</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grades Section -->
+            <div class="dashboard-card glass-effect">
+                <div class="card-header">
+                    <h3><i class="fas fa-chart-line"></i> Recent Grades</h3>
+                </div>
+                <div class="grades-table">
+                    <div class="table-header">
+                        <span>Subject</span>
+                        <span>Assignment</span>
+                        <span>Grade</span>
+                    </div>
+                    <div class="table-row">
+                        <span class="subject">Mathematics</span>
+                        <span class="assignment">Midterm Exam</span>
+                        <span class="grade positive">A-</span>
+                    </div>
+                    <div class="table-row">
+                        <span class="subject">Physics</span>
+                        <span class="assignment">Lab Report 3</span>
+                        <span class="grade">B+</span>
+                    </div>
+                    <div class="table-row">
+                        <span class="subject">English</span>
+                        <span class="assignment">Essay Analysis</span>
+                        <span class="grade positive">A</span>
+                    </div>
+                    <div class="table-row">
+                        <span class="subject">Chemistry</span>
+                        <span class="assignment">Quiz 2</span>
+                        <span class="grade">B</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Modal instances
+            const assignmentModal = new bootstrap.Modal(document.getElementById('addAssignmentModal'));
+            const announcementModal = new bootstrap.Modal(document.getElementById('addAnnouncementModal'));
+            const classModal = new bootstrap.Modal(document.getElementById('addClassModal'));
+            const materialModal = new bootstrap.Modal(document.getElementById('addMaterialModal'));
+            
+            // Button event listeners
+            document.getElementById('addAssignmentBtn').addEventListener('click', () => assignmentModal.show());
+            document.getElementById('addAnnouncementBtn').addEventListener('click', () => announcementModal.show());
+            document.getElementById('addGeneralClassBtn').addEventListener('click', () => {
+                document.getElementById('classForm').dataset.type = 'general';
+                classModal.show();
+            });
+            document.getElementById('addPrivateClassBtn').addEventListener('click', () => {
+                document.getElementById('classForm').dataset.type = 'private';
+                classModal.show();
+            });
+            document.getElementById('addMaterialBtn').addEventListener('click', () => materialModal.show());
+            
+            // Save handlers
+            document.getElementById('saveAssignmentBtn').addEventListener('click', saveAssignment);
+            document.getElementById('saveAnnouncementBtn').addEventListener('click', saveAnnouncement);
+            document.getElementById('saveClassBtn').addEventListener('click', saveClass);
+            document.getElementById('saveMaterialBtn').addEventListener('click', saveMaterial);
+            
+            // File submission handling
+            document.getElementById('assignmentsList').addEventListener('click', handleFileSubmission);
+            
+            function saveAssignment() {
+                const form = document.getElementById('assignmentForm');
+                if (form.checkValidity()) {
+                    const title = document.getElementById('assignmentTitle').value;
+                    const description = document.getElementById('assignmentDescription').value;
+                    const dueDate = document.getElementById('assignmentDueDate').value;
+                    
+                    const assignmentItem = document.createElement('div');
+                    assignmentItem.className = 'assignment-item';
+                    assignmentItem.innerHTML = `
+                        <div class="assignment-info">
+                            <h4>${title}</h4>
+                            <p>${description}</p>
+                            <span class="assignment-due">Due: ${new Date(dueDate).toLocaleDateString()}</span>
+                            <span class="assignment-status pending">Pending</span>
+                        </div>
+                        <div class="assignment-submission">
+                            <input type="file" class="file-input" placeholder="Upload your file">
+                            <button class="submit-btn">Submit</button>
+                        </div>
+                    `;
+                    
+                    document.getElementById('assignmentsList').insertBefore(assignmentItem, document.getElementById('assignmentsList').firstChild);
+                    form.reset();
+                    assignmentModal.hide();
+                    showToast('Assignment added successfully!');
+                } else {
+                    form.reportValidity();
+                }
+            }
+            
+            function saveAnnouncement() {
+                const form = document.getElementById('announcementForm');
+                if (form.checkValidity()) {
+                    const title = document.getElementById('announcementTitle').value;
+                    const description = document.getElementById('announcementDescription').value;
+                    
+                    const announcementItem = document.createElement('div');
+                    announcementItem.className = 'announcement-item';
+                    announcementItem.innerHTML = `
+                        <h4>${title}</h4>
+                        <p>${description}</p>
+                        <span class="announcement-date">${new Date().toLocaleDateString()}, ${new Date().toLocaleTimeString()}</span>
+                    `;
+                    
+                    document.getElementById('announcementsList').insertBefore(announcementItem, document.getElementById('announcementsList').firstChild);
+                    form.reset();
+                    announcementModal.hide();
+                    showToast('Announcement added successfully!');
+                } else {
+                    form.reportValidity();
+                }
+            }
+            
+            function saveClass() {
+                const form = document.getElementById('classForm');
+                const type = form.dataset.type;
+                if (form.checkValidity()) {
+                    const name = document.getElementById('className').value;
+                    const days = document.getElementById('classDays').value;
+                    const time = document.getElementById('classTime').value;
+                    
+                    const classRow = document.createElement('div');
+                    classRow.className = 'timetable-row';
+                    classRow.innerHTML = `
+                        <span class="course-name">${name}</span>
+                        <span class="course-day">${days}</span>
+                        <span class="course-time">${time}</span>
+                    `;
+                    
+                    const targetList = type === 'general' ? 'generalClassesList' : 'privateClassesList';
+                    document.getElementById(targetList).insertBefore(classRow, document.getElementById(targetList).firstChild);
+                    form.reset();
+                    classModal.hide();
+                    showToast('Class added successfully!');
+                } else {
+                    form.reportValidity();
+                }
+            }
+            
+            function saveMaterial() {
+                const form = document.getElementById('materialForm');
+                if (form.checkValidity()) {
+                    const fileInput = document.getElementById('materialFile');
+                    const title = document.getElementById('materialTitle').value;
+                    const description = document.getElementById('materialDescription').value;
+                    const file = fileInput.files[0];
+                    
+                    if (file) {
+                        const fileExtension = file.name.split('.').pop().toLowerCase();
+                        const fileSize = (file.size / (1024 * 1024)).toFixed(1) + ' MB';
+                        const iconClass = getFileIconClass(fileExtension);
+                        
+                        const materialCard = document.createElement('div');
+                        materialCard.className = 'material-card';
+                        materialCard.innerHTML = `
+                            <div class="material-icon">
+                                <i class="${iconClass}"></i>
+                            </div>
+                            <div class="material-info">
+                                <h4>${file.name}</h4>
+                                <p>${description}</p>
+                                <span class="material-date">Uploaded: ${new Date().toLocaleDateString()}</span>
+                                <span class="file-size">${fileSize}</span>
+                            </div>
+                            <div class="material-actions">
+                                <button class="material-btn read">Read</button>
+                                <button class="material-btn download">Download</button>
+                            </div>
+                        `;
+                        
+                        document.getElementById('materialsList').insertBefore(materialCard, document.getElementById('materialsList').firstChild);
+                        form.reset();
+                        materialModal.hide();
+                        showToast('Study material uploaded successfully!');
+                    } else {
+                        showToast('Please select a file to upload', 'error');
+                    }
+                } else {
+                    form.reportValidity();
+                }
+            }
+            
+            function getFileIconClass(extension) {
+                const iconMap = {
+                    'pdf': 'fas fa-file-pdf',
+                    'doc': 'fas fa-file-word',
+                    'docx': 'fas fa-file-word',
+                    'ppt': 'fas fa-file-powerpoint',
+                    'pptx': 'fas fa-file-powerpoint',
+                    'txt': 'fas fa-file-alt',
+                    'xls': 'fas fa-file-excel',
+                    'xlsx': 'fas fa-file-excel',
+                    'zip': 'fas fa-file-archive',
+                    'rar': 'fas fa-file-archive'
+                };
+                return iconMap[extension] || 'fas fa-file';
+            }
+            
+            function handleFileSubmission(e) {
+                if (e.target.classList.contains('submit-btn')) {
+                    const fileInput = e.target.previousElementSibling;
+                    const assignmentItem = e.target.closest('.assignment-item');
+                    const statusSpan = assignmentItem.querySelector('.assignment-status');
+                    
+                    if (fileInput.files.length > 0) {
+                        statusSpan.textContent = 'Submitted';
+                        statusSpan.className = 'assignment-status submitted';
+                        showToast('Assignment submitted successfully!');
+                    } else {
+                        showToast('Please select a file to submit', 'error');
+                    }
+                }
+            }
+            
+            function showToast(message, type = 'success') {
+                const toast = document.createElement('div');
+                toast.className = `toast-notification ${type}`;
+                toast.textContent = message;
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.classList.add('show');
+                }, 100);
+                
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => {
+                        document.body.removeChild(toast);
+                    }, 300);
+                }, 3000);
+            }
+        });
+    </script>
+    <style>
+        .add-assignment-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-left: auto;
+        }
+        
+        .add-assignment-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-1px);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .toast-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--success-color);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 10000;
+        }
+        
+        .toast-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .toast-notification.error {
+            background: var(--danger-color);
+        }
+        
+        .modal-content {
+            background: rgba(var(--card-bg-rgb), 0.95);
+            backdrop-filter: var(--backdrop-blur);
+            -webkit-backdrop-filter: var(--backdrop-blur);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-control {
+            background: var(--hover-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+        }
+        
+        .form-control:focus {
+            background: var(--hover-bg);
+            border-color: var(--primary-color);
+            color: var(--text-color);
+            box-shadow: 0 0 0 0.2rem rgba(0, 122, 255, 0.25);
+        }
+        
+        .form-label {
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        
+        /* Enhanced text fitting for assignments and timetable */
+        .assignment-info,
+        .announcement-item,
+        .material-info,
+        .timetable-row {
+            min-width: 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .assignment-info h4,
+        .announcement-item h4,
+        .material-info h4 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            line-height: 1.3;
+        }
+        
+        .assignment-info p,
+        .announcement-item p,
+        .material-info p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            line-height: 1.4;
+        }
+        
+        .course-name,
+        .course-day,
+        .course-time {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            line-height: 1.3;
+            min-width: 0;
+        }
+        
+        /* Improved layout for better text visibility */
+        .assignment-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .timetable-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 0.8rem;
+            align-items: center;
+        }
+        
+        /* Enhanced mobile layout */
+        @media (max-width: 768px) {
+            .assignment-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .timetable-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                text-align: center;
+            }
+            
+            .course-name {
+                font-weight: 600;
+                order: 1;
+            }
+            
+            .course-day {
+                order: 2;
+                opacity: 0.8;
+            }
+            
+            .course-time {
+                order: 3;
+                font-weight: 600;
+            }
+            
+            .assignment-info h4,
+            .announcement-item h4,
+            .material-info h4 {
+                -webkit-line-clamp: 3;
+                font-size: 1rem;
+            }
+            
+            .assignment-info p,
+            .announcement-item p,
+            .material-info p {
+                -webkit-line-clamp: 4;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            .assignment-info h4,
+            .announcement-item h4,
+            .material-info h4 {
+                font-size: 0.95rem;
+                -webkit-line-clamp: 4;
+            }
+            
+            .assignment-info p,
+            .announcement-item p,
+            .material-info p {
+                font-size: 0.85rem;
+                -webkit-line-clamp: 5;
+            }
+            
+            .course-name,
+            .course-day,
+            .course-time {
+                font-size: 0.85rem;
+            }
+        }
+        
+       
+    </style>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apple‑Style Code Editor</title>
+
+  <!-- CodeMirror -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/mode/htmlmixed/htmlmixed.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/mode/css/css.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/mode/javascript/javascript.js"></script>
+
+  <style>
+    body{
+      margin: 0;
+      background: #f5f5f7;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      padding: 1rem 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      color: rgb(16, 122, 158);
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .editor-wrapper,
+    .preview-wrapper {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.459);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 200px;
+    }
+
+    .label {
+      padding: 0.8rem 1rem;
+      font-weight: 600;
+      background: #fafafa;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    iframe {
+      border: none;
+      flex: 1;
+      background: rgb(243, 243, 243);
+;
+    }
+
+    /* CodeMirror custom Apple-style */
+    .CodeMirror {
+      height: 100%;
+      font-size: 15px;
+      line-height: 1.5;
+      padding: 1rem;
+      background: #ffffff;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        flex-direction: row;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+   <header>I-Tech Code Editor</header>
+
+  <div class="container">
+    <div class="editor-wrapper">
+      <div class="label">Code</div>
+      <textarea id="editor"></textarea>
+    </div>
+
+    <div class="preview-wrapper">
+      <div class="label">Output</div>
+      <iframe id="preview"></iframe>
+    </div>
+  </div>
+
+
+
+  <script>
+  const editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
+    mode: 'htmlmixed',
+    lineNumbers: true,
+    tabSize: 2
+  });
+
+  const frame = document.getElementById('preview');
+
+  function refresh() {
+    const code = editor.getValue();
+    const doc = frame.contentDocument;
+    doc.open();
+    doc.write(code);
+    doc.close();
+  }
+
+  editor.on('change', refresh);
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>I-Tech</title>
+
+
+
+</head>
+<body>
+
+<div class="container_1"></div>
+   
+  <main class="login-app" aria-labelledby="login-title">
+    
+     
+    <header class="login-header">
+      <div class="logo-spot" >
+        <img src="image/I-tech-logo.png" alt="Company logo" class="header-logo" />
+      </div>
+      
+    </header>
+
+    <section class="login-panel" aria-describedby="login-desc">
+      <h1 id="login-title" class="panel-title">Sign in to Your Account</h1>
+      <p id="login-desc" class="panel-sub">I-Tech&lt;/&gt;</p>
+
+      <form id="loginForm" class="form" autocomplete="on" novalidate>
+        <label class="field">
+          <span class="label">Email</span>
+          <input id="email" name="email" type="email" placeholder="YourEmail@gmail.com" required />
+          <span class="field-note" id="emailNote"></span>
+        </label>
+
+        <label class="field">
+          <span class="label">Password</span>
+          <div class="password-row">
+            <input id="password" name="password" type="password" placeholder="Enter your password" required minlength="6" />
+          </div>
+          <span class="field-note" id="pwNote"></span>
+        </label>
+
+        <div class="form-actions">
+          <div></div>
+        </div>
+
+        <div class="submit-row">
+          <button id="signinBtn" class="btn primary" type="submit">Sign in</button>
+        </div>
+
+        <div id="formMsg" class="form-msg" role="status" aria-live="polite"></div>
+      </form>
+
+      <div class="alt">
+       
+      </div>
+    </section>
+
+    <footer class="login-footer small muted">
+      &copy; I-Tech, by Ishmael Sannoh &lt;/&gt;
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

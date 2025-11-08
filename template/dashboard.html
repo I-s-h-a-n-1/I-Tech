@@ -1,0 +1,399 @@
+{%extends 'login.html'%}
+<!--suppress ALL -->
+{%block head%}
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{%block title%} I-tech {%endblock%}</title>
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="../static/css/home.css" />
+    <link rel="stylesheet" href="../static/css/timetable.css" />
+    <link rel="stylesheet" href="../static/css/styles.css" />
+    <link rel="stylesheet" href="../static/css/profile.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flash.css') }}" />
+</head>
+{%endblock%}
+<body>
+    {% block content %}
+
+    <div class="v-logout">
+        <p>Are you sure you want to log out of your Account</p>
+        <div class="v-action-btn">
+            <button>
+                <a href="{{url_for('logout')}}">Yes</a>
+            </button>
+
+            <button onclick="stay_login()">
+                <a> No</a>
+            </button>
+        </div>
+    </div>
+
+    <div class="glass-effect" id="year">Yr. <span>{{user.year}}</span></div>
+
+    <div class="glass-effect" id="course-offered">
+        <span>{{user.department}}</span>
+    </div>
+
+    <div class="fixed-logo" onclick="toggleBottomBar()" id="sidebarToggle">
+        <img src="../static/image/I-tech-logo.png" alt="Logo" class="top-logo" />
+        <span class="logo-text">I-Tech</span>
+    </div>
+
+    <div class="container_1"></div>
+
+    <aside class="sidebar">
+        <nav class="sidebar-nav">
+            <input type="radio" id="dashboard_1" name="tab" checked />
+            <label for="dashboard_1">
+                <a class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span class="disp">Dashboard</span>
+                </a>
+            </label>
+            <br />
+
+            <input type="radio" id="courses" name="tab" />
+            <label for="courses">
+                <a class="nav-item">
+                    <i class="fas fa-book"> </i>
+                    <span class="disp">Study Materials</span>
+                </a>
+            </label>
+            <br />
+
+            <input type="radio" id="timetable" name="tab" />
+            <label for="timetable">
+                <a class="nav-item">
+                    <i class="fas fa-calendar"></i>
+                    <span class="disp">Timetable</span>
+                </a>
+            </label>
+            <br />
+
+            <input type="radio" name="tab" id="announcements" />
+            <label for="announcements">
+                <a class="nav-item">
+                    <i class="fas fa-bullhorn"></i>
+                    <span class="disp">Announcements</span>
+                </a>
+            </label>
+            <br />
+
+            <input type="radio" name="tab" id="resources" />
+            <label for="resources">
+                <a class="nav-item">
+                    <i class="fas fa-folder"></i>
+                    <span class="disp">Assignments</span>
+                </a>
+            </label>
+            <br />
+
+            <input type="radio" name="tab" id="profile" />
+            <label for="profile">
+                <a class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span class="disp">Profile</span>
+                </a>
+            </label>
+            <br />
+
+            <input type="radio" name="tab" id="code-editor-section" />
+            <label for="code-editor-section">
+                <a class="nav-item">
+                    <i class="fas fa-code"></i>
+                    <span class="disp">Code Editor</span>
+                </a>
+            </label>
+            <br />
+
+            <a class="nav-item logout-btn" id="logoutBtn" onclick="verifyLogout()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="disp">Logout</span>
+            </a>
+        </nav>
+    </aside>
+
+    <div class="whole-content">
+        <div id="home-container" class="interface">
+            <main class="compact-content-wrapper">
+                <!-- Dashboard Grid Layout -->
+                <div class="dashboard-grid">
+                    <!-- Balance Card -->
+                    <div class="dashboard-card glass-effect">
+                        <div class="balance-display">
+                            <h3><i class="fas fa-wallet">&ThinSpace;</i>Amount Paid</h3>
+                            <h2 class="balance-amount">Le {{user.amount_paid}}</h2>
+                        </div>
+
+                        <div class="balance-display">
+                            <h3><i class="fas fa-wallet"> &ThinSpace;</i>Balance</h3>
+                            <h2 class="balance-amount">Le {{user.balance}}</h2>
+                            <p class="balance-due"><i>Due</i> &ThinSpace; December</p>
+                        </div>
+                    </div>
+
+                    <!-- Announcements Section -->
+                    <div class="dashboard-card glass-effect">
+                        <div class="announcement-holder" id="announcementsList"></div>
+                    </div>
+
+                    <div class="dashboard-card glass-effect study-main"></div>
+
+                    <!-- General Classes Timetable -->
+                    <div class="dashboard-card glass-effect">
+                        <div class="card-header">
+                            <h3><i class="fas fa-users"></i> General Classes</h3>
+                        </div>
+                        <div class="simple-timetable" id="generalClassesList">
+                            <div class="timetable-row">
+                                <span class="course-name">Web Technology</span>
+                                <span class="course-day">Mon, Wed</span>
+                                <span class="course-time">08:00 - 09:30</span>
+                            </div>
+                            <div class="timetable-row">
+                                <span class="course-name">Networking</span>
+                                <span class="course-day">Tue, Thu</span>
+                                <span class="course-time">10:00 - 11:30</span>
+                            </div>
+                            <div class="timetable-row">
+                                <span class="course-name">Database</span>
+                                <span class="course-day">Mon, Fri</span>
+                                <span class="course-time">13:00 - 14:30</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Private Classes Timetable -->
+                    <div class="dashboard-card glass-effect">
+                        <div class="card-header">
+                            <h3><i class="fas fa-user-graduate"></i> Private Classes</h3>
+                        </div>
+                        <div class="simple-timetable" id="privateClassesList">
+                            <div class="timetable-row">
+                                <span class="course-name">Web Technology</span>
+                                <span class="course-day">Tuesday</span>
+                                <span class="course-time">15:00 - 16:30</span>
+                            </div>
+                            <div class="timetable-row">
+                                <span class="course-name">Networking</span>
+                                <span class="course-day">Wednesday</span>
+                                <span class="course-time">17:00 - 18:30</span>
+                            </div>
+                            <div class="timetable-row">
+                                <span class="course-name">Database</span>
+                                <span class="course-day">Thursday</span>
+                                <span class="course-time">15:00 - 16:30</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card glass-effect">
+                        <p class="assignment-demo">
+                            Assignments will be posted here once available. Please note that this site is still under construction. <br />
+                            <br />
+                            <mark>By Ishan</mark>
+                        </p>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div id="timetable-page" class="interface">
+            <main class="compact-content-wrapper">
+                <!-- Dashboard Grid Layout -->
+                <div class="dashboard-grid">
+                    <!-- General Classes Timetable -->
+                    <div class="dashboard-card glass-effect">
+                        <div class="card-header">
+                            <h3><i class="fas fa-users"> </i> General Classes</h3>
+                        </div>
+                        <div class="timetable-container">
+                            <div class="timetable-header">
+                                <span>Time</span>
+                                <span>Monday</span>
+                                <span>Tuesday</span>
+                                <span>Wednesday</span>
+                            </div>
+                            <div class="timetable-grid">
+                                <!-- Morning Sessions -->
+                                <div class="time-slot">08:00 - 09:30</div>
+                                <div class="class-cell mathematics">
+                                    Computer <br />
+                                    Programming
+                                </div>
+                                <div class="class-cell physics">Networking</div>
+                                <div class="class-cell mathematics">Web Tech</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card glass-effect">
+                        <div class="card-header">
+                            <h3><i class="fas fa-user"> </i>Private Classes</h3>
+                        </div>
+                        <div class="timetable-container">
+                            <div class="timetable-header">
+                                <span>Time</span>
+                                <span>Thursday</span>
+                                <span>Friday</span>
+                                <span>Saturday</span>
+                            </div>
+                            <div class="timetable-grid">
+                                <!-- Morning Sessions -->
+                                <div class="time-slot">08:00 - 09:30</div>
+                                <div class="class-cell mathematics">
+                                    Computer <br />
+                                    Programming
+                                </div>
+                                <div class="class-cell physics">Networking</div>
+                                <div class="class-cell mathematics">Web Tech</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div class="interface" id="profile-update">
+            <form class="compact-content-wrapper-profile" method="POST" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <!-- Profile Section -->
+                <div class="profile-container">
+                    <div class="dashboard-card glass-effect profile-card">
+                        <div class="profile-header">
+                            <h2><i class="fas fa-user-circle"></i> Profile Information</h2>
+                            <button type="button" class="btn-edit" id="editButton" onclick="editPic()"><i class="fas fa-edit"></i> Edit</button>
+                        </div>
+
+                        <div class="profile-content">
+                            <!-- Profile Picture Section -->
+                            <div class="profile-picture-section">
+                                <div class="profile-image-container">
+                                    <img src="data:image/png;base64,{{ pic_data }}" alt="Profile Picture" class="profile-image" id="profileImage" />
+                                    <div class="profile-overlay">
+                                        <label for="profileUpload" class="upload-btn">
+                                            <i class="fas fa-camera"></i>
+                                            <span>Update Photo</span>
+                                        </label>
+                                        {{form.profile_pic(id="profileUpload", class="file-input" ,accept="image/*")}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Profile Form -->
+                            <div class="profile-form" id="profileForm">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" id="username" class="form-control" value="{{user.username}}" readonly />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="course">Course/Program</label>
+                                    <input type="text" id="course" class="form-control" value="{{user.department}}" readonly />
+                                </div>
+
+                                <div class="form-actions">
+                                    {{form.submit(class="btn-primary" ,id="saveButton", style="display: none;")}}
+                                    <button type="button" class="btn-secondary" id="cancelButton" style="display: none;" onclick="hideButton()">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="interface" id="main-materials">
+            <div class="compact-content-wrapper_resource">
+                {%for file in files%}
+                <div class="dashboard-card glass-effect book" id="sub-container">
+                    <div class="card-header">
+                        <h3><i class="fas fa-book"></i> Study Material</h3>
+                    </div>
+
+                    <div class="materials-grid" id="item">
+                        <div class="material-card">
+                            <div class="material-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="material-info">
+                                <h4>{{file.filename}}</h4>
+                                <p style="font-size: 16px;">By Ishan</p>
+                                <span class="material-date">Year {{file.year}}</span>
+                            </div>
+                            <div class="material-actions">
+                                <a href="{{ url_for('preview_file', id=file.id) }}">
+                                    <button class="material-btn read">Read</button>
+                                </a>
+
+                                <a href="{{ url_for('download', id=file.id) }}"><button class="material-btn">Download</button> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {%endfor%}
+            </div>
+        </div>
+
+        <div class="interface dashboard-card glass-effect soon" id="resources-page">
+            Assignments will be posted here
+        </div>
+
+        <div class="interface announce-style" id="announcement-page">
+            <div class="compact-content-wrapper_resource" id="announcement-content">
+                {%for message in messages%}
+                <div class="dashboard-card glass-effect book" id="sub-container">
+                    <div class="card-header">
+                        <h3><i class="fas fa-bullhorn">&ThinSpace;</i>Announcement</h3>
+                    </div>
+
+                    <div class="materials-grid" id="item">
+                        <div class="material-card">
+
+                                <h4>{{message.header}}</h4>
+
+                                <span class="message"> {{message.content}}</span>
+
+                        </div>
+                    </div>
+                </div>
+
+                {%endfor%}
+            </div>
+        </div>
+
+        <div class="interface" id="main-editor">
+           <div class="compact-content-wrapper_resource glass-effect">
+            
+   <iframe src="{{ url_for('editor') }}"  class="editor-frame"></iframe>
+
+           </div>
+        </div>
+
+        <!--main container ends here!-->
+    </div>
+
+    <footer>
+        <!-- Hidden Bottom Bar -->
+        <div class="bottom-bar">
+            <div class="bar-content">
+                <p class="timer"></p>
+                <div class="profile-pic">
+                    <i><p>{{user.username}}</p></i>
+                    <img src="data:image/png;base64,{{ pic_data }}" alt="profile-picture" />
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../static/js/script.js"></script>
+    <script src="{{ url_for('static', filename='js/flash.js') }}"></script>
+
+    {%endblock%}
+</body>

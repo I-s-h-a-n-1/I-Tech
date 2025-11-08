@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Group Chat</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Inter, sans-serif;
+      background: #eef1f5;
+      display: flex;
+      justify-content: center;
+    }
+
+    .chat-wrapper {
+      width: 100%;
+      max-width: 650px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .header {
+      padding: 20px;
+      font-size: 1.4rem;
+      font-weight: 600;
+      border-bottom: 1px solid #e4e4e4;
+      background: #fafafa;
+    }
+
+    .messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .msg {
+      background: #f7f9fc;
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1px solid #e5e9f0;
+    }
+
+    .msg small {
+      color: #6c6c6c;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .reply-box {
+      margin-top: 10px;
+      padding: 10px;
+      border-left: 3px solid #c8d1e4;
+      background: #f0f3f9;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    form.reply-form input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #dcdcdc;
+      margin-top: 10px;
+    }
+
+    .delete-btn {
+      margin-top: 10px;
+      background: #ff5252;
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    .send-area {
+      padding: 15px;
+      border-top: 1px solid #e4e4e4;
+      display: flex;
+      gap: 10px;
+      background: #fafafa;
+    }
+
+    .send-area input[type="text"] {
+      flex: 1;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .send-area button {
+      padding: 0 20px;
+      border: none;
+      background: #4a6cf7;
+      color: white;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-wrapper">
+    <div class="header">Group Chat</div>
+
+    <div class="messages">
+      {% for m in messages %}
+      <div class="msg">
+        <small>{{ m.user.username }}</small><br />
+        {{ m.content }}
+
+        {% if m.parent %}
+        <div class="reply-box">
+          Replying to: {{ m.parent.content }}
+        </div>
+        {% endif %}
+
+        <form class="reply-form" method="POST" action="{{ url_for('reply_message', msg_id=m.id) }}">
+          <input type="text" name="reply" placeholder="Reply..." />
+        </form>
+
+        <form method="POST" action="{{ url_for('delete_message_chat', msg_id=m.id) }}">
+          <button class="delete-btn" type="submit">Delete</button>
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+
+    <form class="send-area" method="POST">
+      {{ form.hidden_tag() }}
+      {{ form.content(class_="message-input", placeholder="Type a message...") }}
+      {{ form.submit(class_="send-btn") }}
+    </form>
+  </div>
+</body>
+</html>

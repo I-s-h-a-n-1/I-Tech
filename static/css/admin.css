@@ -1,0 +1,96 @@
+
+    body{
+   background-color: #121212;
+ }
+    .container-fluid{
+    padding-bottom: 70px;
+      padding-left: 40px;
+       padding-right: 40px;
+    }
+    @media(min-width: 760px){
+    .container-fluid{
+     padding-left: 100px;
+       padding-right: 100px;
+
+    }
+    }
+
+
+    *{
+      font-weight: bold;
+      font-style: italic;
+    }
+    .action-btn { margin-right: 5px; }
+    .user-form { margin-bottom: 2rem; }
+    table { word-break: break-word; }
+    .title,h2{
+      font-weight: bold;
+      color: rgb(9, 122, 160);
+      font-style: italic;
+    }
+    h4{
+      color: green;
+      font-weight: bold;
+
+    }
+    .form-control{
+      border-color: rgb(6, 138, 175);
+      font-weight: bolder;
+    }
+
+
+@media(max-width: 700px){
+    *{
+    font-size: small;
+    }
+    }
+    .st-yr{
+    width: 50%;
+    }
+    .st-materials ,.user-form,table tr,.announcement-form{
+    backdrop-filter: blur(25px);
+    padding: 20px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
+
+    border-radius: 20px;
+
+    }
+    .btn-primary{
+
+background-color: green;
+    }
+    .top tr th{
+    background-color: rgb(6, 138, 175);
+    color: white;
+      white-space: nowrap;
+    }
+    .table tr td,.table tr{
+    background-color: #fcfcfc;
+    border-radius: 10px;
+
+
+    }
+
+ .message_content{
+ width: 90%;
+ min-height: 150px !important;
+ overflow: auto;
+ border: 2px solid rgb(6, 138, 175);
+ border-radius: 10px;
+ margin-bottom: 15px;
+ }
+.mg-title{
+width: 60%;
+padding: 10px;
+border-radius: 10px;
+margin-bottom:  10px;
+border: 2px solid rgb(6, 138, 175);
+color: darkgreen;
+
+}
+h6{
+font-weight: bold;
+}
+
+
+

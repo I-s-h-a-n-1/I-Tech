@@ -1,0 +1,28 @@
+ .alert {
+      padding: 15px 25px;
+      backdrop-filter: blur(6px);
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translate(-50%, -50%) translateY(-50px);
+      font-size: large;
+      font-weight: bold;
+      font-style: italic;
+      border-radius: 12px;
+      color: black;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+      opacity: 0;
+      transition: all 0.5s ease;
+      z-index: 9999;
+      text-align: center;
+      min-width: 250px;
+      max-width: 90%;
+    }
+
+    .alert.success { background-color: #34c759; } /* green */
+    .alert.error { background-color: #ff3b30; }   /* red */
+
+    .alert.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) translateY(0);
+    }

@@ -1,0 +1,98 @@
+
+
+.timetable-container {
+            overflow-x: auto;
+            margin: 0 -1rem;
+            padding:2px ;
+    
+            
+         
+        }
+
+        .timetable-header {
+            display: grid;
+            grid-template-columns: 40px repeat(3, 1fr);
+            gap: 20px;
+            padding: 10px;
+            background: #0db2d2;;
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            color: var(--text-color);
+             font-size: 90%;
+             font-weight: bold;
+             
+             font-style: italic;
+            text-align: center;
+        }
+
+        .timetable-grid {
+            display: grid;
+            grid-template-columns: 40px repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 60px;
+            font-size: 90%;
+             font-weight: bold;
+             font-style: italic;
+          
+           
+            
+        }
+        @media (min-width: 760px ){
+            .timetable-grid,  .timetable-header {
+         font-size: 100%;
+            }
+            .timetable-grid{
+                margin-top: 100px;
+                
+            }
+        }
+
+        .time-slot {
+            padding: 1px;
+            background: rgba(var(--hover-bg-rgb), 0.3);
+            border-radius: 8px;
+            font-size: 90%;
+             font-weight: bold;
+             font-style: italic;
+            color: var(--text-color);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .class-cell {
+            padding: 10px;
+            background: rgba(var(--primary-color), 0.1);
+            border: 2px solid rgba(var(--primary-color), 0.2);
+            border-radius: 12px;
+            color: var(--text-color);
+            text-align: center;
+            font-style: italic;
+        
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .class-cell:hover {
+            background: rgba(var(--primary-color), 0.2);
+            transform: translateY(-2px);
+        }
+
+        .class-cell.mathematics {
+            background: rgba(0, 122, 255, 0.15);
+            border-color: rgba(0, 122, 255, 0.3);
+        }
+
+        .class-cell.physics {
+            background: rgba(255, 149, 0, 0.15);
+            border-color: rgba(255, 149, 0, 0.3);
+        }
+        .card-header i{
+           color: black;
+        }
