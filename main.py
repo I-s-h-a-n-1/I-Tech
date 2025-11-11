@@ -1,4 +1,5 @@
 # app.py
+
 from io import BytesIO
 from flask import Flask, render_template, redirect, url_for, session, flash, request, send_file
 from flask_sqlalchemy import SQLAlchemy
@@ -22,8 +23,11 @@ db_name = os.environ.get("DB_NAME")
 db_host = os.environ.get("DB_HOST", "localhost")
 db_port = os.environ.get("DB_PORT", "5432")
 
-app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
+
+
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
+
 db = SQLAlchemy(app)
 
 # ------------------- Database Models -------------------
@@ -301,4 +305,4 @@ if __name__ == '__main__':
         db.create_all()  # creates tables in PostgreSQL
         if not User.query.filter_by(email="admin@example.com").first():
             create_user("Admin", "admin@example.com", "admin123", "N/A", "IT", 0.0, is_admin=True)
-    app.run(debug=True)
+    app.run()
