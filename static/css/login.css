@@ -225,7 +225,7 @@ border-radius: 8px;
 background-color: hsl(138, 60%, 48%);
 border-radius: 50%;
 }
-.alert{
+#flash-info{
 color: red;
 }
 
