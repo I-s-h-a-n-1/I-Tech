@@ -410,5 +410,8 @@ object-fit: contain;
 .editor-frame{
     height: 100vh;
     min-width: 95vw;
+    padding-right: 10px;
+    margin-right: -20px;
 }
+
 
