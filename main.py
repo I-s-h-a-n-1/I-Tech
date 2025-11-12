@@ -16,16 +16,9 @@ from urllib.parse import quote_plus
 # ------------------- App Setup -------------------
 app = Flask(__name__, template_folder='template')
 
-# Environment variables
-db_user = os.environ.get("DB_USER")
-db_password = quote_plus(os.environ.get("DB_PASSWORD"))  # encode special chars
-db_name = os.environ.get("DB_NAME")
-db_host = os.environ.get("DB_HOST", "localhost")
-db_port = os.environ.get("DB_PORT", "5432")
 
 
-
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///database.db"
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 
 db = SQLAlchemy(app)

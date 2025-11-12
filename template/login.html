@@ -43,7 +43,7 @@
       <h1 id="login-title" class="panel-title">Sign in to Your Account</h1>
       <p id="login-desc" class="panel-sub">I-Tech&lt;/&gt;</p>
 
-      <form action="/" id="loginForm" class="form" autocomplete="off" novalidate method="POST">
+      <form action="/" id="loginForm" class="form" autocomplete="on" novalidate method="POST">
         {{ form.hidden_tag() }}
 
         <label class="field">
@@ -55,8 +55,10 @@
         <label class="field">
           <span class="label">Password</span>
           <div class="password-row">
+
             {{ form.password(id="password", placeholder="Enter your password" ,autocomplete = "on" ) }}
           </div>
+
           <span class="field-note" id="pwNote"></span>
         </label>
 

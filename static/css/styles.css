@@ -277,7 +277,7 @@ transform: scale3d(1.2);
 /* Bottom Bar Styles */
 .bottom-bar {
   position: fixed;
-  bottom: -5px;
+  bottom: -20px;
   left: 0;
   right: 0;
   width: 100%;
@@ -369,6 +369,8 @@ object-fit: contain;
 .dashboard-grid{
     overflow-y: scroll;
     padding-bottom: 100px;
+    width:100%;
+
 }
 .soon{
 

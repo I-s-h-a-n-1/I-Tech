@@ -4,8 +4,8 @@
  }
     .container-fluid{
     padding-bottom: 70px;
-      padding-left: 40px;
-       padding-right: 40px;
+      padding-left: 13px;
+       padding-right: 13px;
     }
     @media(min-width: 760px){
     .container-fluid{
@@ -22,7 +22,9 @@
     }
     .action-btn { margin-right: 5px; }
     .user-form { margin-bottom: 2rem; }
-    table { word-break: break-word; }
+    table { word-break: break-word;
+    padding:30px;
+    }
     .title,h2{
       font-weight: bold;
       color: rgb(9, 122, 160);
@@ -36,6 +38,9 @@
     .form-control{
       border-color: rgb(6, 138, 175);
       font-weight: bolder;
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 5px;
     }
 
 
@@ -65,9 +70,10 @@ background-color: green;
       white-space: nowrap;
     }
     .table tr td,.table tr{
-    background-color: #fcfcfc;
-    border-radius: 10px;
-
+     backdrop-filter: blur(25px);
+    border-radius: 5px;
+     white-space: nowrap;
+     text-align: center;
 
     }
 
