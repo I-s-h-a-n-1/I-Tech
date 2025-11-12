@@ -408,7 +408,7 @@ object-fit: contain;
 }
 
 .editor-frame{
-    height: 80vh;
-    width: 90vw;
+    height: 100vh;
+    min-width: 95vw;
 }
 
